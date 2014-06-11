@@ -1,0 +1,60 @@
+.dashboard-report {
+	margin-right: 10px;
+}
+
+.dashboard-report h1,
+.dashboard-report h2,
+.dashboard-report h3,
+.dashboard-report h4,
+.dashboard-report h5,
+.dashboard-report h6 {
+	margin-bottom: 10px;
+}
+	
+
+.dashboard-report .results {
+	padding-top: 10px;
+	margin-left: 10px;
+}
+
+.dashboard-report .section {
+	border-top: 1px dotted #ccc;
+	margin-bottom: 0;	
+	padding: 10px;
+	font-style: italic;
+}
+
+.dashboard-report .field-hint {
+	float: left; 
+	position: absolute; 
+	font-variant: small-caps;
+	color: orange;
+}
+
+.dashboard-report .row:hover {
+	background: #FDFFE3;
+}
+
+.dashboard-report .filters {
+	margin: 0 0 0 10px;
+	padding: 7px;	
+}
+
+.dashboard-report label {
+	text-align: right;
+	width: 100%;
+}
+
+.dashboard-report select {
+	width: 100%;
+}
+
+.dashboard-report label.required {
+	font-weight: bold;
+}
+.dashboard-report label.optional {
+    font-weight: normal;	
+}
+.dashboard-report .subtle-hint {
+	text-align: center;
+}

@@ -1,0 +1,19 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+h1.invert, h2.invert, h3.invert, h4.invert, h5.invert {
+	background: #9C9C9C;
+	color: white;
+	padding: 10px;
+	border-radius: 10px 0 0 10px;
+}
+
+#container-main {
+    padding: 65px 15px 15px 0;    
+}
+
+.subtle-hint {
+	color: #ccc;
+}
