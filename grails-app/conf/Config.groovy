@@ -117,13 +117,16 @@ log4j = {
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'grails.stuff.auth.Person'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'grails.stuff.auth.PersonAuthority'
-grails.plugin.springsecurity.authority.className = 'grails.stuff.auth.Authority'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'grailschool.stuff.auth.Person'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'grailschool.stuff.auth.PersonAuthority'
+grails.plugin.springsecurity.authority.className = 'grailschool.stuff.auth.Authority'
 grails.plugin.springsecurity.logoutURL = '/j_spring_security_logout'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':							  ['ROLE_ADMIN'],
-	'/**':							  ['ROLE_ADMIN'],	
+	'/':							  ['ROLE_ADMIN', 'ROLE_TEACHER', 'ROLE_PARENT'],
+	'/**':							  ['ROLE_ADMIN', 'ROLE_TEACHER', 'ROLE_PARENT'],
+	'/admin/':						  ['ROLE_ADMIN'],
+	'/admin/**':					  ['ROLE_ADMIN'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],

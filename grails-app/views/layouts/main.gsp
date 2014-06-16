@@ -1,6 +1,3 @@
-<% 
-
-%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,13 +26,22 @@
         </div>
         <div class="collapse navbar-collapse">
           <sec:ifLoggedIn>
-              <ul class="nav navbar-nav">
-                <li><a href="javascript:void(0);">Student Management</a></li>
-                <li><a href="javascript:void(0);">Teacher Management</a></li>
-                <li><a href="javascript:void(0);">Cirriculum Management</a></li>
+              <ul class="nav navbar-nav">              
+                <li><g:link absolute="true" controller="index">Dashboard</g:link></li>
+                <li><g:link absolute="true" controller="student" namespace="shared">Students</g:link></li>
+                <li><g:link absolute="true" controller="teacher" namespace="admin">Teachers</g:link></li>
+                <li><g:link absolute="true" controller="cirriculum" namespace="admin">Cirriculum</g:link></li>
+                <li><g:link absolute="true" controller="facilities" namespace="admin">Facilities</g:link></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="${grailsApplication.config.grails.plugin.springsecurity.logoutURL}">Logout</a></li> 
+                <li>                    
+                    <g:link
+                        absolute="true"
+                        url="${request.contextPath + grailsApplication.config.grails.plugin.springsecurity.logoutURL}">
+                        <span class="glyphicon glyphicon-user"></span>
+                        Logout <sec:username/>                     
+                    </g:link>                    
+                </li> 
               </ul>
           </sec:ifLoggedIn>        
         </div>

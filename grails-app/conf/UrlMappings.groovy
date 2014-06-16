@@ -1,13 +1,24 @@
 class UrlMappings {
 
 	static mappings = {
-        "/$controller/$action?/$id?(.$format)?"{
-            constraints {
-                // apply constraints here
-            }
+       "/admin/$controller/$action?/$id?(.$format)?"{
+            namespace = 'admin'
         }
-
-        "/"(view:"/index")
+	   "/teacher/$controller/$action?/$id?(.$format)?"{
+		   namespace = 'teacher'
+	   }
+	   "/parent/$controller/$action?/$id?(.$format)?"{
+		   namespace = 'parent'
+	   }
+	   "/shared/$controller/$action?/$id?(.$format)?"{
+		   namespace = 'shared'
+	   }	   
+	   "/$controller/$action?/$id?(.$format)?"{
+		   constraints {
+		   	controller(matches:/login/)
+		   }
+	   }
+        "/"(controller:'index', action:'index')
         "500"(view:'/error')
 	}
 }
