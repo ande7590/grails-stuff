@@ -6,12 +6,9 @@
       <r:require module="dashboard"/>  
    </head>
    <body>
-   	<div id="modalSuccess" style="display: none;">
+   	<div id="createEntitySuccessMessage" style="display: none;">
     	<div class="alert alert-success"><span class="glyphicon glyphicon-ok-circle"></span> <strong>Classroom Created</strong></div>
-    </div>
-    <div id="modalError" style="display: none;">
-    	<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Error creating classroom</strong></div>
-    </div>                                      
+    </div>                                    
    	<h1>Facilities</h1>
    	<h4 class="invert">New Classroom</h4>
    	<div class="row filters">
@@ -25,10 +22,24 @@
   		</div>
  	</div>
  	<h4 class="invert">Existing Classrooms</h4>
-	<div id="entityList" class="results">   			   		
-	 <g:render contextPath="${viewDirectory}" template="list" model="${ model }"/>
+	<div id="entityList" class="results"> 
+	
+	 <!-- Entity List -->
+	 <my:entityList id="facilitiesList" class="results" rows="${ classrooms }">
+	   <my:entityListField label="Room Number" value="roomNumber"/>
+	   <my:entityListAccessory type="delete" 
+	   	url="[controller: 'facilities', action: 'delete', namespace: 'admin']" 
+	   	urlIdValue="id"/>
+	 </my:entityList>
  	</div>
- 	<!-- Modal Window -->
-   	<g:render contextPath="${viewDirectory}" template="modal" model="model"/>   
+ 	
+ 	<!-- Modal Window --> 	
+   	<my:entityModal 
+   	    entityListId = "facilitiesList"
+   	    title="Create Classroom" 
+   	    type="create"   	    
+   	    formName="createFacilities" 
+   	    formURL="[controller: 'facilities', action: 'create', namespace: 'admin']"
+   	    formTemplate="/admin/facilities/create"/>
    </body>
 </html>

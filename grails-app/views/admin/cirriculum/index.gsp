@@ -6,24 +6,25 @@
       <r:require module="dashboard"/>
    </head>
    <body>                   
-   	<div id="modalSuccess" style="display: none;">
-    	<div class="alert alert-success"><span class="glyphicon glyphicon-ok-circle"></span> <strong>Class created</strong></div>
-    </div>
-    <div id="modalError" style="display: none;">
-    	<div class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Error creating class</strong></div>
-    </div> 
+   	<div id="createEntitySuccessMessage"></div>
    	<h1>Cirriculum</h1>
-   	<h4 class="invert">New Class</h4>
+   	<h4 class="invert">New Cirriculum</h4>
    	<div class="row filters">
   		<span class="field-hint"><span class="glyphicon glyphicon-flash"></span> action </span>   		   		
   		<div class="col-md-offset-2 col-md-2">  			
+  			<my:entityCreateAction
+  				type="button" 
+  				label="Add Cirriculum" 
+  				modalId="modalCirriculumEditor"
+  				/>
+
   			<button id="addEntityButton" type="submit" class="btn btn-default pull-left"
   				data-toggle="modal" data-target="#createEntityModal">
-  					<span class="glyphicon glyphicon-plus"></span> Add class
+  					<span class="glyphicon glyphicon-plus"></span> Add Cirriculum
   			</button>
   		</div>
  	</div>
- 	<h4 class="invert">Existing Classes</h4>
+ 	<h4 class="invert">Existing Cirricula</h4>
  	<div class="filters row">
  		<span class="field-hint"><span class="glyphicon glyphicon-search"></span> search </span>
    		<div class="col-md-2">
@@ -44,11 +45,32 @@
    			</select>
    		</div>
  	</div>
- 	<div id="entityList" class="results">
- 		<!-- Result List -->
-   		<g:render contextPath="${viewDirectory}" template="list" model="model"/>
-   	</div>
-   	<!-- Modal Window -->
-   	<g:render contextPath="${viewDirectory}" template="modal" model="model"/>   	
+ 	
+ 	<div id="entityList" class="results"> 
+	
+	 <!-- Entity List -->
+	 <my:entityList id="facilitiesList" class="results" rows="${ classDefinitions }">
+	   <my:entityListField label="Name" value="name"/>
+	   <my:entityListField label="Department" value="department"/>
+	   <my:entityListAccessory type="edit"
+	   	url="[controller: 'cirriculum', action: 'edit', namespace: 'admin']" 
+	   	urlIdValue="id"
+	   	modalId=""
+	   	/>	   
+	   <my:entityListAccessory type="delete" 
+	   	url="[controller: 'facilities', action: 'delete', namespace: 'admin']" 
+	   	urlIdValue="id"/>
+	 </my:entityList>
+ 	</div> 	 	
+   	
+   	<!-- Modal Windows -->
+   	<my:entityModal 
+   		id="modalCirriculumEditor"
+   		title="Add Cirriculum"   		
+   	    formName="addCirriculum" 
+   	    formURL="[controller: 'cirriculum', action: 'create', namespace: 'admin']" 
+   	    formTemplate="/admin/cirriculum/create" />
+   	    
+   	    
    </body>
-</html>
+</html> 
