@@ -31,7 +31,7 @@
                 <li><g:link absolute="true" controller="student" namespace="shared">Students</g:link></li>
                 <li><g:link absolute="true" controller="teacher" namespace="admin">Teachers</g:link></li>
                 <li><g:link absolute="true" controller="cirriculum" namespace="admin">Cirriculum</g:link></li>
-                <li><g:link absolute="true" controller="facilities" namespace="admin">Facilities</g:link></li>
+                <li><g:link absolute="true" controller="facility" namespace="admin">Facilities</g:link></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li>                    

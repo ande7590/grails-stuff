@@ -4,10 +4,15 @@
     <title><g:message code="springSecurity.login.title"/></title>
     <r:require modules="bootstrap, signin"/>
 </head>
-
 <body>
-
  <div class="container">
+  <div class="alert alert-info" role="alert"><strong>Heads Up!</strong>
+   <ul>
+   	<li>This is still under construction, but you can use username 'admin' and password 'admin' to check it out.</li>
+   	<li>Some stuff is just mocked-up, some stuff is working, and there are probably a few bugs.</li>
+   	<li> When this is complete, there will be multiple accounts (teacher, admin, parent) with different perspectives on the same data.</li>
+   </ul>    
+  </div>
   <form class="form-signin" role="form" action='${postUrl}' method='POST' id='loginForm' autocomplete='off'>
     <h2 class="form-signin-heading">
         <g:message code="springSecurity.login.header"/>

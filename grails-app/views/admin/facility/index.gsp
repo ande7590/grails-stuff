@@ -17,29 +17,31 @@
   			<button 
   				id="addEntityButton" type="submit" class="btn btn-default pull-left"
   				data-toggle="modal" data-target="#createEntityModal">
-  					<span class="glyphicon glyphicon-plus"></span> Add classroom
+  					<span class="glyphicon glyphicon-plus"></span> Add Classroom
   			</button>
   		</div>
  	</div>
  	<h4 class="invert">Existing Classrooms</h4>
-	<div id="entityList" class="results"> 
-	
-	 <!-- Entity List -->
-	 <my:entityList id="facilitiesList" class="results" rows="${ classrooms }">
-	   <my:entityListField label="Room Number" value="roomNumber"/>
-	   <my:entityListAccessory type="delete" 
-	   	url="[controller: 'facilities', action: 'delete', namespace: 'admin']" 
-	   	urlIdValue="id"/>
-	 </my:entityList>
- 	</div>
- 	
+ 	<div class="filters row">
+ 		<span class="field-hint"><span class="glyphicon glyphicon-search"></span> search </span>
+   		<div class="col-md-2">
+   			<label class="optional">Name:</label>
+   		</div>
+   		<div class="col-md-2">
+   			<input name="name" disabled="disabled"/>
+   		</div>
+ 	</div> 	
+	<div id="entityList" class="results">
+		<g:render template="/admin/facility/list"/>	
+ 	</div> 	
  	<!-- Modal Window --> 	
-   	<my:entityModal 
-   	    entityListId = "facilitiesList"
-   	    title="Create Classroom" 
+   	<my:entityModal
+   		id="createEntityModal" 
    	    type="create"   	    
-   	    formName="createFacilities" 
-   	    formURL="[controller: 'facilities', action: 'create', namespace: 'admin']"
-   	    formTemplate="/admin/facilities/create"/>
+   	    entityListId = "facilitiesList"
+   	    title="Create Classroom"
+   	    url="[controller: 'facility', action: 'create', namespace: 'admin']"
+   	    formName="createFacilities"   	    
+   	    formTemplate="/admin/facility/create"/>
    </body>
 </html>

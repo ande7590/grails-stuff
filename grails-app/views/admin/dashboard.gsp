@@ -6,6 +6,7 @@
       <r:require module="dashboard"/>
    </head>
    <body>
+   		<div class="alert alert-warning" role="alert"><strong>This is just a mockup.</strong> But it will be working soon!</div>
         <h1>Dashboard</h1>         
         <div class="dashboard-report">
             <h4 class="invert">Student Grades</h4>          
@@ -87,7 +88,7 @@
                 </div>
             </div>        
             <div class="results">
-                <h4 class="section">2004</h4>               
+                <h4 class="section">2014</h4>               
                 <div class="progress">
                   <div class="progress-bar progress-bar-success" style="width: 65%">
                     120 passing
@@ -102,8 +103,36 @@
                     <span class="sr-only">10% Complete (danger)</span>
                   </div>
                 </div>
-                <h4 class="section">2005</h4>
-                <h4 class="section">2006</h4>
+                <h4 class="section">2013</h4>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" style="width: 50%">
+                    100 passing
+                    <span class="sr-only">35% Complete (success)</span>
+                  </div>
+                  <div class="progress-bar progress-bar-warning" style="width: 30%">
+                    33 struggling
+                    <span class="sr-only">20% Complete (warning)</span>
+                  </div>
+                  <div class="progress-bar progress-bar-danger" style="width: 20%">
+                    23 failing
+                    <span class="sr-only">10% Complete (danger)</span>
+                  </div>
+                </div>
+                <h4 class="section">2012</h4>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" style="width: 65%">
+                    120 passing
+                    <span class="sr-only">35% Complete (success)</span>
+                  </div>
+                  <div class="progress-bar progress-bar-warning" style="width: 20%">
+                    10 struggling
+                    <span class="sr-only">20% Complete (warning)</span>
+                  </div>
+                  <div class="progress-bar progress-bar-danger" style="width: 15%">
+                    13 failing
+                    <span class="sr-only">10% Complete (danger)</span>
+                  </div>
+                </div>
             </div>
             
         </div>       

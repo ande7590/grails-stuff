@@ -3,3 +3,5 @@ target-eclipse/
 .classpath
 .settings
 .project
+out/
+grails-app/conf/DataSource.groovy

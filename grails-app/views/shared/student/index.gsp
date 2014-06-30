@@ -6,13 +6,17 @@
       <r:require module="dashboard"/>
    </head>
    <body>               	   
+   	<div class="alert alert-warning" role="alert"><strong>This is just a mockup.</strong> But it will be working soon! Click "New Student" to see another mockup.</div>
    	<h1>Students</h1>
    	<h4 class="invert">New Students</h4>    
    	<div class="row filters">
    		<span class="field-hint"><span class="glyphicon glyphicon-flash"></span> action </span>   		   		
    		<div class="col-md-offset-2 col-md-2">
    			<g:form url="[action:'enroll', controller:'student', namespace:'shared']">
-   				<button type="submit" class="btn btn-default pull-left">Enroll new student</button>
+   				<button id="addEntityButton" type="submit" class="btn btn-default pull-left"
+  					data-toggle="modal" data-target="#modalAddTeacher">
+  					<span class="glyphicon glyphicon-plus"></span> New Student
+  				</button>
    			</g:form>   
    		</div>   		
    	</div>

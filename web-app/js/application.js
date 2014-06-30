@@ -7,3 +7,24 @@ if (typeof jQuery !== 'undefined') {
 		});
 	})(jQuery);
 }
+
+function showAlert(alertName, autoHide) {
+  $('#'+alertName).show();
+  if (autoHide !== false) {
+    setTimeout((function() {
+      hideAlert(alertName);
+    }), 6000);
+  }
+}
+
+function hideAlert(alertName) {
+  $('#' + alertName).hide();
+}
+
+function resetEntityModal(entityModalId, modalErrorMessageId) { 
+  $('#' + entityModalId)
+    .modal('hide')
+    .find("input, select").val('');
+  $('#' + modalErrorMessageId).html("");
+}
+

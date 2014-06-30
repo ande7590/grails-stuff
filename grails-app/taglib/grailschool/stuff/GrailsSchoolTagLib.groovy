@@ -23,19 +23,28 @@ class GrailsSchoolTagLib {
 			throw new RuntimeException("Invalid type for entity modal, must be either create or edit, got " + type);
 		}
 		
-		out << render(template: '/lib/modal', model:[
+		def model = [
 			// required:
 			title: attrs.title,
 			formName: attrs.formName,
-			formURL: attrs.formURL,
-			formTemplate: attrs.formTemplate,
+			formURL: attrs.url,
+			type: type,
 			entityListId: attrs.get('entityListId', 'entityList'),
+			formData: attrs.get('formData', null),
 			formSubmitLabel: attrs.get('formSubmitLabel', 'Save'),
 			formCancelLabel: attrs.get('formCancelLabel', 'Close'),
 			formAutofocus: attrs.get('formAutofocus', true),
-			modalId: attrs.get('modalId', 'createEntityModal'),
+			modalId: attrs.get('id', "${type}EntityModal"),
 			modalSuccessMessageId: attrs.get('modalSuccessMessageId', "${type}EntitySuccessMessage"),
-			modalErrorMessageId: attrs.get('modalErrorMessageId', "${type}EntityErrorMessage")])
+			modalErrorMessageId: attrs.get('modalErrorMessageId', "${type}EntityErrorMessage")]
+		
+		if (model.type == 'create') {			
+			model['formTemplate'] = attrs.formTemplate			
+		} else if (model.type == 'edit') {
+			model['formShowURL'] = attrs.formShowURL
+		}
+		
+		out << render(template: '/lib/modal', model: model)
 	}
 	
 	def entityList = { attrs, body ->		
@@ -43,6 +52,7 @@ class GrailsSchoolTagLib {
 			entityListId: attrs.id,
 			entityListClass: attrs.get("class", ""),
 			entityListRows: attrs.get('rows', []),
+			containerListId: attrs.get('containerId', 'entityList'),
 			accessories: []]
 		
 		request.setAttribute(CONTEXT, entityListModel)
@@ -79,6 +89,13 @@ class GrailsSchoolTagLib {
 			type: attrs.type,
 			label: attrs.get('label', attrs.type)]
 		
+		if (accessoryModel.type == 'delete') {
+			accessoryModel['update'] = entityListModel.containerListId
+		} else if (accessoryModel.type == 'edit') {
+			accessoryModel['update'] = attrs.modalId + ' .modal-body'
+			entityListModel['editModalId'] = attrs.modalId
+		}
+
 		// list accessories can be created with URLs that are dependent
 		// on a value for each row.  In a standard URL parameter map (arguments to createLink),
 		// any property on the accessory tag that is of the form "url(*)Value", E.g., "urlIdValue",
@@ -118,10 +135,9 @@ class GrailsSchoolTagLib {
 			}			
 		}
 		
-
 		entityListModel.accessories << accessoryModel
 	}
-
+	
 	private static String toCamelCase(def pascalCaseString) {
 		return pascalCaseString.size() == 0 ? ""
 			: pascalCaseString.size() == 1 ? pascalCaseString[0].toLowerCase()

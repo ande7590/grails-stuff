@@ -1,3 +1,4 @@
+<g:hiddenField name="entityId" value="${formData?.id}"/>
 <div id="entityErrorMessage"></div>
 <div class="row">
 	<span class="field-hint"><span class="glyphicon glyphicon-asterisk"></span> required </span> 
@@ -7,7 +8,7 @@
 		<label class="required"><span class="required-decorator">*</span>  Name: </label>	
 	</div>
 	<div class="col-md-8">
-		<input name="name" />	
+		<input name="name" value="${ formData?.name }"/>	
 	</div>
 </div>
 <div class="row filters">
@@ -15,6 +16,6 @@
 		<label class="required"><span class="required-decorator">*</span>  Department: </label>	
 	</div>
 	<div class="col-md-4">
-		<g:select name="department" from="${departments}"/>	
+		<g:select name="department" from="${departments}" value="${formData?.department}"/>	
 	</div>
 </div>

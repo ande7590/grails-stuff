@@ -2,9 +2,9 @@ package grailschool.stuff.admin
 
 import grailschool.stuff.school.Classroom;
 
-class FacilitiesController extends AbstractAdminController {
+class FacilityController extends AbstractAdminController {
 	
-	protected final viewDirectory = '/admin/facilities/'
+	protected final viewDirectory = '/admin/facility/'
 	
 	def index() {
 		render(view:".index", model:[classrooms: Classroom.list()])

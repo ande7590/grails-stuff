@@ -1,19 +1,145 @@
+/* 
+	==================
+	==== Elements ====
+	================== 
+*/
+
 body {
 	padding: 0;
 	margin: 0;
 }
 
+/*  ==========================
+	==== Classed Elements ====
+	========================== 
+*/
 h1.invert, h2.invert, h3.invert, h4.invert, h5.invert {
-	background: #9C9C9C;
+	background: #ADADAD;
 	color: white;
-	padding: 10px;
-	border-radius: 10px 0 0 10px;
+	padding: 7px;
+	border-radius: 7px 0 0 7px;
+}
+.invert small {
+	color: #eee;
 }
 
+
+label.required, label.optional {
+	margin-top: 5px;
+}
+label.required {
+	font-weight: bold;	
+}
+label.optional {
+    font-weight: normal;	
+}
+
+/*
+	=============
+	==== IDs ====
+	============= 
+*/
 #container-main {
     padding: 65px 15px 15px 0;    
 }
 
+/*
+	=================
+	==== Classes ====
+	================= 
+*/
 .subtle-hint {
 	color: #ccc;
+}
+
+.field-hint, .required-decorator {
+	color: orange;
+}
+
+.field-hint {
+	float: left; 
+	position: absolute; 
+	font-variant: small-caps;	
+}
+
+.filters {
+	margin: 0 0 0 10px;
+	padding: 7px;	
+}
+	.filters label {
+		text-align: right;
+		width: 100%;
+	}		
+	.filters select, .filters input {
+		width: 100%;
+		text-align: right;
+		border-radius: 3px;
+		height: 30px;
+		background: #fff;	
+	}
+	.filters button {
+		width: 100%;
+	}
+	
+.modal-dialog .row {
+	min-height: 20px;
+}
+	.modal-dialog .field-hint {
+		margin-left: 10px !important;
+	}
+	.modal-dialog label {
+		text-align: left;
+	}
+	.modal-dialog input {
+		text-align: left;
+	}
+
+.results {
+	padding-top: 10px;
+	margin-left: 10px;
+}
+
+.btn-default .glyphicon-plus {
+	color: #19850D !important;	
+}
+.btn-default .glyphicon {
+	color: gray;
+}
+	.table .glyphicon-remove {
+		color: #FF6161;	
+		cursor: pointer;
+	}
+	.table-hover tbody {
+		cursor: pointer;
+	}
+	.table .subtle-hint {
+		font-variant: small-caps;
+		color: #AAA;
+	}
+	.table .labeled-action:hover {
+		color: #ccc;
+	}
+	.table .labeled-action .subtle-hint {
+		margin-top: 3px;
+	}
+	
+.table a:hover {	
+	text-decoration: none !important;
+}
+	.table a:hover .subtle-hint {
+		text-decoration: underline;
+	}
+	.table a {
+		margin-right: 5px;
+	}
+
+.accessory-md, .accessory-lg {
+	text-align: right;
+}
+
+.accessory-md {
+	width: 100px;
+}
+.accessory-lg {
+	width: 200px;
 }

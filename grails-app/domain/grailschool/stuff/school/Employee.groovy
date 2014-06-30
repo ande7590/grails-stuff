@@ -4,6 +4,9 @@ class Employee {
 	static mapping = {
 		table schema: 'SCHOOL'
 	}
+	static constraints = {
+		parkingPass nullable: true
+	}
 	
 	ParkingPass parkingPass		
 	String firstName

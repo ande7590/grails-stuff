@@ -5,7 +5,8 @@
       <meta name="layout" content="main" />
       <r:require module="dashboard"/>
    </head>
-   <body>   		
+   <body> 
+   		<div class="alert alert-warning" role="alert"><strong>This is just a mockup.</strong> But it will be working soon!</div>  		
    		<g:if test="${actionName == 'enroll'}">
    			<h1>Enroll Student</h1>                
    		</g:if>
@@ -49,26 +50,26 @@
    		<div class="results">   			   		
    			<table class="table table-condensed">
 	   			<thead>
-	   				<tr>  
-	   					<th style="width:100px;"></th> 					
+	   				<tr>  		
 	   					<th>Class Name</th>
 	   					<th>Department</th>
 	   					<th>Grade Year</th>   					
 	   					<th>Teacher</th>
+	   					<th style="width:100px;"></th> 			
 	   				</tr>
 	   			</thead>
 	   			<tbody>
-	   				<tr >   
-	   					<td>
-	   						<a class="labeled-action" href="#">
-	   							<span class="glyphicon glyphicon-remove"></span> <span class="subtle-hint">remove</span>
-	   						</a>
-	   					</td>			
+	   				<tr >   	   							
 	   					<td>The Earth And Ocean</td>
 	   					<td>Science</td>
 	   					<td>5th grade</td>
 	   					<td>
-	   						Mrs. Goooo
+	   						Mrs. Goodyear
+	   					</td>
+	   					<td>
+	   						<a class="labeled-action" href="#">
+	   							<span class="glyphicon glyphicon-remove"></span> <span class="subtle-hint">remove</span>
+	   						</a>
 	   					</td>   					
 	   				</tr>
 	   			</tbody>

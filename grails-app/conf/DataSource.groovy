@@ -2,7 +2,7 @@ dataSource {
     pooled = true
     driverClassName = "org.h2.Driver"
     username = "sa"
-    password = ""
+    password = '1SlySX2I72'
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -10,7 +10,7 @@ hibernate {
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
 }
 
-def h2ConnectionString = 'jdbc:h2:~/.grails-stuff;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS SCHOOL\\; CREATE SCHEMA IF NOT EXISTS AUTH;'
+def h2ConnectionString = 'jdbc:h2:~/.grails-stuff;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS SCHOOL\\; CREATE SCHEMA IF NOT EXISTS AUTH\\; ALTER USER sa SET PASSWORD \'1SlySX2I72\';'
 
 // environment specific settings
 environments {
